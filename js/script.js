@@ -6,26 +6,20 @@ const menuButton = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 if (menuButton) {
-
     menuButton.addEventListener("click", () => {
-
         navLinks.classList.toggle("open");
-
     });
-
 }
 
 
-// Close menu after clicking a link
+// ===============================
+// CLOSE MENU AFTER CLICKING LINK
+// ===============================
 
 document.querySelectorAll(".nav-links a").forEach(link => {
-
     link.addEventListener("click", () => {
-
         navLinks.classList.remove("open");
-
     });
-
 });
 
 
@@ -34,34 +28,29 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 // ===============================
 
 const observer = new IntersectionObserver(
-
     (entries) => {
 
         entries.forEach(entry => {
 
             if (entry.isIntersecting) {
-
                 entry.target.classList.add("visible");
-
             }
 
         });
 
     },
-
     {
         threshold: 0.12
     }
-
 );
 
 
-// Observe animation elements
+// ===============================
+// OBSERVE ANIMATION ELEMENTS
+// ===============================
 
 document.querySelectorAll(".reveal").forEach(element => {
-
     observer.observe(element);
-
 });
 
 
@@ -86,10 +75,13 @@ glow.style.transform = "translate(-50%, -50%)";
 document.body.appendChild(glow);
 
 
+// ===============================
+// MOVE GLOW WITH MOUSE
+// ===============================
+
 window.addEventListener("pointermove", (event) => {
 
     glow.style.left = event.clientX + "px";
-
     glow.style.top = event.clientY + "px";
 
 });
