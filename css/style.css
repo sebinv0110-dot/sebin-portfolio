@@ -1,19 +1,37 @@
+/* ===============================
+   RESET
+================================ */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
+/* ===============================
+   VARIABLES
+================================ */
+
 :root {
     --bg: #0a0c0f;
     --bg2: #101419;
     --panel: #151a20;
+
     --text: #f4f6f8;
     --muted: #919aa6;
+
     --line: #252c35;
+
     --lime: #d9ff5b;
+
     --max: 1160px;
 }
+
+
+/* ===============================
+   GLOBAL
+================================ */
 
 html {
     scroll-behavior: smooth;
@@ -21,16 +39,21 @@ html {
 
 body {
     font-family: "Inter", Arial, sans-serif;
+
     background: var(--bg);
     color: var(--text);
+
     line-height: 1.65;
+
     overflow-x: hidden;
 }
 
 body::before {
     content: "";
+
     position: fixed;
     inset: 0;
+
     pointer-events: none;
 
     background:
@@ -39,6 +62,7 @@ body::before {
             rgba(217, 255, 91, 0.06),
             transparent 25%
         ),
+
         radial-gradient(
             circle at 85% 20%,
             rgba(111, 145, 255, 0.06),
@@ -52,36 +76,56 @@ a {
 }
 
 .container {
-    width: min(var(--max), calc(100% - 44px));
+    width: min(
+        var(--max),
+        calc(100% - 44px)
+    );
+
     margin: auto;
 }
 
 
-/* ================= NAVBAR ================= */
+/* ===============================
+   NAVBAR
+================================ */
 
 .navbar {
     height: 76px;
 
     position: sticky;
     top: 0;
+
     z-index: 50;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 max(22px, calc((100vw - var(--max)) / 2));
+    padding:
+        0
+        max(
+            22px,
+            calc(
+                (100vw - var(--max)) / 2
+            )
+        );
 
-    background: rgba(10, 12, 15, 0.84);
+    background:
+        rgba(10, 12, 15, 0.84);
+
     backdrop-filter: blur(15px);
 
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom:
+        1px solid rgba(255,255,255,0.04);
 }
 
 .logo {
     font-family: "Manrope", sans-serif;
+
     font-weight: 800;
+
     font-size: 27px;
+
     letter-spacing: -1px;
 }
 
@@ -91,12 +135,15 @@ a {
 
 .nav-links {
     display: flex;
+
     gap: 28px;
 }
 
 .nav-links a {
     color: var(--muted);
+
     font-size: 13px;
+
     font-weight: 600;
 
     transition: 0.25s;
@@ -110,16 +157,20 @@ a {
     display: none;
 
     background: transparent;
+
     border: none;
 
     color: white;
+
     font-size: 24px;
 
     cursor: pointer;
 }
 
 
-/* ================= HERO ================= */
+/* ===============================
+   HERO
+================================ */
 
 .hero {
     min-height: 680px;
@@ -128,7 +179,10 @@ a {
     padding-bottom: 100px;
 
     display: grid;
-    grid-template-columns: 1.18fr 0.82fr;
+
+    grid-template-columns:
+        1.18fr
+        0.82fr;
 
     gap: 80px;
 
@@ -138,17 +192,23 @@ a {
 .status {
     width: max-content;
 
-    border: 1px solid #34402a;
+    border:
+        1px solid #34402a;
+
     background: #12170e;
 
     color: var(--lime);
 
-    padding: 7px 11px;
+    padding:
+        7px
+        11px;
 
     border-radius: 999px;
 
     font-size: 10px;
+
     letter-spacing: 1.3px;
+
     font-weight: 800;
 
     margin-bottom: 28px;
@@ -166,12 +226,14 @@ a {
 
     margin-right: 7px;
 
-    box-shadow: 0 0 12px var(--lime);
+    box-shadow:
+        0 0 12px var(--lime);
 }
 
 .kicker,
 .section-label {
     font-size: 11px;
+
     letter-spacing: 2.4px;
 
     color: var(--lime);
@@ -186,7 +248,12 @@ a {
 .hero h1 {
     font-family: "Manrope", sans-serif;
 
-    font-size: clamp(58px, 8.2vw, 100px);
+    font-size:
+        clamp(
+            58px,
+            8.2vw,
+            100px
+        );
 
     line-height: 0.93;
 
@@ -197,6 +264,7 @@ a {
 
 .hero h1 em {
     color: var(--lime);
+
     font-style: normal;
 }
 
@@ -210,8 +278,17 @@ a {
     margin-top: 25px;
 }
 
+
+/* ===============================
+   HERO BUTTONS
+================================ */
+
 .hero-buttons {
     display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
 
     gap: 12px;
 
@@ -219,6 +296,8 @@ a {
 }
 
 .btn {
+    position: relative;
+
     display: inline-flex;
 
     align-items: center;
@@ -226,21 +305,54 @@ a {
 
     gap: 10px;
 
-    padding: 13px 18px;
+    min-height: 48px;
+
+    padding:
+        13px
+        18px;
 
     border-radius: 12px;
 
+    border:
+        1px solid var(--line);
+
     font-size: 13px;
+
     font-weight: 800;
 
-    border: 1px solid var(--line);
+    letter-spacing: 0.1px;
 
-    transition: 0.25s;
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
+
+/* Arrow */
+
+.btn-arrow {
+    display: inline-block;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
 }
+
+
+/* ===============================
+   EXPLORE MY WORK
+================================ */
 
 .btn-primary {
     background: var(--lime);
@@ -248,11 +360,132 @@ a {
     color: #10120c;
 
     border-color: var(--lime);
+
+    box-shadow:
+        0 8px 25px
+        rgba(217, 255, 91, 0.10);
 }
 
-.btn-ghost {
-    background: transparent;
+.btn-primary:hover {
+    transform: translateY(-3px);
+
+    background: #e4ff7a;
+
+    box-shadow:
+        0 12px 35px
+        rgba(217, 255, 91, 0.22);
 }
+
+.btn-primary:hover .btn-arrow {
+    transform:
+        translate(
+            4px,
+            -4px
+        );
+}
+
+
+/* ===============================
+   LET'S CONNECT
+================================ */
+
+.btn-ghost {
+    background:
+        rgba(255,255,255,0.02);
+
+    color: var(--text);
+
+    border-color:
+        #303842;
+}
+
+.btn-ghost:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(217,255,91,0.06);
+
+    border-color:
+        var(--lime);
+
+    box-shadow:
+        0 10px 28px
+        rgba(0,0,0,0.25);
+}
+
+.btn-ghost:hover .btn-arrow {
+    transform:
+        translateX(5px);
+
+    color: var(--lime);
+}
+
+
+/* ===============================
+   VIEW RESUME
+================================ */
+
+.btn-resume {
+    background: transparent;
+
+    color: #cbd2da;
+
+    border-color:
+        #252c35;
+}
+
+.btn-resume:hover {
+    transform: translateY(-3px);
+
+    background: #151a20;
+
+    color: var(--lime);
+
+    border-color:
+        #4a572e;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.30);
+}
+
+.btn-resume:hover .btn-arrow {
+    transform:
+        translate(
+            3px,
+            -3px
+        );
+
+    color: var(--lime);
+}
+
+
+/* ===============================
+   BUTTON PRESS
+================================ */
+
+.btn:active {
+    transform:
+        translateY(-1px)
+        scale(0.98);
+}
+
+
+/* ===============================
+   BUTTON FOCUS
+================================ */
+
+.btn:focus-visible {
+    outline:
+        2px solid var(--lime);
+
+    outline-offset: 4px;
+}
+
+
+/* ===============================
+   QUICK FACTS
+================================ */
 
 .quick-facts {
     display: flex;
@@ -272,6 +505,7 @@ a {
     font-family: "Manrope", sans-serif;
 
     font-size: 25px;
+
     font-weight: 800;
 }
 
@@ -284,7 +518,9 @@ a {
 }
 
 
-/* ================= HERO CARD ================= */
+/* ===============================
+   HERO CARD
+================================ */
 
 .hero-right {
     position: relative;
@@ -297,16 +533,23 @@ a {
 }
 
 .portrait-card {
-    width: min(355px, 100%);
+    width:
+        min(
+            355px,
+            100%
+        );
+
     height: 430px;
 
-    background: linear-gradient(
-        150deg,
-        #192018,
-        #11151a
-    );
+    background:
+        linear-gradient(
+            150deg,
+            #192018,
+            #11151a
+        );
 
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
 
     border-radius: 28px;
 
@@ -315,32 +558,46 @@ a {
     transform: rotate(2.5deg);
 
     box-shadow:
-        0 35px 90px rgba(0,0,0,0.38);
+        0 35px 90px
+        rgba(0,0,0,0.38);
 }
 
 .portrait-placeholder {
     height: 340px;
+
     width: 100%;
+
     border-radius: 20px;
+
     overflow: hidden;
-    background: linear-gradient(
-        140deg,
-        #26301d,
-        #0f1317
-    );
-    border: 1px solid #39462b;
+
+    background:
+        linear-gradient(
+            140deg,
+            #26301d,
+            #0f1317
+        );
+
+    border:
+        1px solid #39462b;
 }
 
 .portrait-placeholder img {
     width: 100%;
+
     height: 100%;
+
     display: block;
+
     object-fit: cover;
+
     object-position: center;
 }
 
 .portrait-info {
-    padding: 15px 4px;
+    padding:
+        15px
+        4px;
 }
 
 .portrait-info span {
@@ -366,18 +623,25 @@ a {
 .floating-card {
     position: absolute;
 
-    padding: 13px 15px;
+    padding:
+        13px
+        15px;
 
-    background: rgba(18,22,27,0.92);
+    background:
+        rgba(18,22,27,0.92);
 
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
 
     border-radius: 14px;
 
     box-shadow:
-        0 20px 45px rgba(0,0,0,0.25);
+        0 20px 45px
+        rgba(0,0,0,0.25);
 
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 14px;
 
@@ -389,7 +653,9 @@ a {
 
     color: var(--muted);
 
-    font-family: "Inter", sans-serif;
+    font-family:
+        "Inter",
+        sans-serif;
 
     font-size: 10px;
 
@@ -398,20 +664,27 @@ a {
 
 .floating-card.one {
     top: 55px;
+
     left: 0;
 }
 
 .floating-card.two {
     right: -6px;
+
     bottom: 65px;
 }
 
 
-/* ================= MARQUEE ================= */
+/* ===============================
+   MARQUEE
+================================ */
 
 .marquee {
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border-top:
+        1px solid var(--line);
+
+    border-bottom:
+        1px solid var(--line);
 
     overflow: hidden;
 
@@ -427,11 +700,14 @@ a {
 
     width: max-content;
 
-    animation: scroll 24s linear infinite;
+    animation:
+        scroll 24s linear infinite;
 
     color: #c6ccd4;
 
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 12px;
 
@@ -447,23 +723,30 @@ a {
 @keyframes scroll {
 
     to {
-        transform: translateX(-50%);
+        transform:
+            translateX(-50%);
     }
 
 }
 
 
-/* ================= SECTIONS ================= */
+/* ===============================
+   SECTIONS
+================================ */
 
 .section {
-    padding: 110px 0;
+    padding:
+        110px 0;
 }
 
 .section-dark {
     background: var(--bg2);
 
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border-top:
+        1px solid var(--line);
+
+    border-bottom:
+        1px solid var(--line);
 }
 
 .section-label {
@@ -471,20 +754,31 @@ a {
 }
 
 
-/* ================= ABOUT ================= */
+/* ===============================
+   ABOUT
+================================ */
 
 .about-grid {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr
+        1fr;
 
     gap: 85px;
 }
 
 .about-grid h2 {
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
-    font-size: clamp(39px,5.3vw,65px);
+    font-size:
+        clamp(
+            39px,
+            5.3vw,
+            65px
+        );
 
     line-height: 1.03;
 
@@ -495,6 +789,7 @@ a {
 
 .about-grid h2 em {
     color: var(--lime);
+
     font-style: normal;
 }
 
@@ -526,9 +821,12 @@ a {
 
 .language-line span,
 .tech span {
-    padding: 7px 10px;
+    padding:
+        7px
+        10px;
 
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
 
     border-radius: 999px;
 
@@ -538,7 +836,9 @@ a {
 }
 
 
-/* ================= SKILLS ================= */
+/* ===============================
+   SKILLS
+================================ */
 
 .skills-head {
     display: flex;
@@ -554,9 +854,16 @@ a {
 
 .skills-head h2,
 .project-head h2 {
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
-    font-size: clamp(39px,5.3vw,65px);
+    font-size:
+        clamp(
+            39px,
+            5.3vw,
+            65px
+        );
 
     line-height: 1.03;
 
@@ -575,13 +882,17 @@ a {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(
+            3,
+            1fr
+        );
 
     gap: 14px;
 }
 
 .skill {
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
 
     background: #12171d;
 
@@ -595,9 +906,11 @@ a {
 }
 
 .skill:hover {
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
-    border-color: #3c4930;
+    border-color:
+        #3c4930;
 }
 
 .skill span {
@@ -611,11 +924,15 @@ a {
 }
 
 .skill h3 {
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 22px;
 
-    margin: 26px 0 7px;
+    margin:
+        26px 0
+        7px;
 }
 
 .skill p {
@@ -625,7 +942,9 @@ a {
 }
 
 
-/* ================= PROJECTS ================= */
+/* ===============================
+   PROJECTS
+================================ */
 
 .project-head {
     display: flex;
@@ -655,7 +974,8 @@ a {
     display: grid;
 
     grid-template-columns:
-        1fr 1fr;
+        1fr
+        1fr;
 
     gap: 16px;
 }
@@ -665,7 +985,8 @@ a {
 
     padding: 30px;
 
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
 
     border-radius: 20px;
 
@@ -677,13 +998,16 @@ a {
 }
 
 .project:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
 
-    border-color: #4a572e;
+    border-color:
+        #4a572e;
 }
 
 .project.featured {
-    grid-column: span 2;
+    grid-column:
+        span 2;
 
     min-height: 295px;
 
@@ -699,9 +1023,12 @@ a {
     position: absolute;
 
     top: 26px;
+
     right: 28px;
 
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 12px;
 
@@ -729,7 +1056,9 @@ a {
 }
 
 .project h3 {
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 31px;
 
@@ -744,8 +1073,7 @@ a {
     color: #d0d6de;
 
     margin:
-        4px
-        0
+        4px 0
         15px;
 }
 
@@ -768,12 +1096,16 @@ a {
 }
 
 
-/* ================= EXPERIENCE ================= */
+/* ===============================
+   EXPERIENCE
+================================ */
 
 .experience-grid {
     display: grid;
 
-    grid-template-columns: 100px 1fr;
+    grid-template-columns:
+        100px
+        1fr;
 
     gap: 28px;
 
@@ -781,7 +1113,8 @@ a {
 
     padding: 30px 0;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom:
+        1px solid var(--line);
 }
 
 .experience-grid:last-child {
@@ -789,7 +1122,9 @@ a {
 }
 
 .exp-year {
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 26px;
 
@@ -799,7 +1134,9 @@ a {
 }
 
 .experience-grid h3 {
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 28px;
 
@@ -823,7 +1160,9 @@ a {
 }
 
 
-/* ================= EDUCATION ================= */
+/* ===============================
+   EDUCATION
+================================ */
 
 .education {
     display: grid;
@@ -832,7 +1171,8 @@ a {
         1.3fr
         0.7fr;
 
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
 
     border-radius: 22px;
 
@@ -856,7 +1196,9 @@ a {
 }
 
 .edu-main h2 {
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 40px;
 
@@ -865,8 +1207,7 @@ a {
     letter-spacing: -2px;
 
     margin:
-        20px
-        0
+        20px 0
         12px;
 }
 
@@ -881,13 +1222,16 @@ a {
 
     align-content: center;
 
-    border-left: 1px solid var(--line);
+    border-left:
+        1px solid var(--line);
 }
 
 .edu-side div {
-    padding: 22px 30px;
+    padding:
+        22px 30px;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom:
+        1px solid var(--line);
 }
 
 .edu-side div:last-child {
@@ -907,7 +1251,9 @@ a {
 .edu-side strong {
     display: block;
 
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 21px;
 
@@ -918,7 +1264,8 @@ a {
     display: grid;
 
     grid-template-columns:
-        1fr 1fr;
+        1fr
+        1fr;
 
     gap: 13px;
 
@@ -926,11 +1273,13 @@ a {
 }
 
 .school-marks div {
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
 
     border-radius: 15px;
 
-    padding: 18px 20px;
+    padding:
+        18px 20px;
 
     display: flex;
 
@@ -944,13 +1293,17 @@ a {
 .school-marks strong {
     color: var(--lime);
 
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 18px;
 }
 
 
-/* ================= CONTACT ================= */
+/* ===============================
+   CONTACT
+================================ */
 
 .contact-section {
     padding-bottom: 90px;
@@ -967,7 +1320,8 @@ a {
 
     padding: 46px;
 
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
 
     border-radius: 24px;
 
@@ -980,7 +1334,9 @@ a {
 }
 
 .contact-card h2 {
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 48px;
 
@@ -991,8 +1347,7 @@ a {
     letter-spacing: -2.5px;
 
     margin:
-        12px
-        0
+        12px 0
         16px;
 }
 
@@ -1019,11 +1374,13 @@ a {
 }
 
 .contact-links a {
-    padding: 18px 19px;
+    padding:
+        18px 19px;
 
     background: #101419;
 
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
 
     border-radius: 14px;
 
@@ -1037,9 +1394,11 @@ a {
 }
 
 .contact-links a:hover {
-    border-color: #4a572e;
+    border-color:
+        #4a572e;
 
-    transform: translateX(4px);
+    transform:
+        translateX(4px);
 }
 
 .contact-links span {
@@ -1053,20 +1412,24 @@ a {
 }
 
 .contact-links b {
-    font-family: "Manrope", sans-serif;
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size: 13px;
 }
 
 
-/* ================= FOOTER ================= */
+/* ===============================
+   FOOTER
+================================ */
 
 .footer {
-    border-top: 1px solid var(--line);
+    border-top:
+        1px solid var(--line);
 
     padding:
-        28px
-        0
+        28px 0
         45px;
 
     display: flex;
@@ -1079,12 +1442,15 @@ a {
 }
 
 
-/* ================= ANIMATION ================= */
+/* ===============================
+   SCROLL ANIMATION
+================================ */
 
 .reveal {
     opacity: 0;
 
-    transform: translateY(22px);
+    transform:
+        translateY(22px);
 
     transition:
         opacity 0.7s ease,
@@ -1102,7 +1468,9 @@ a {
 }
 
 
-/* ================= MOBILE ================= */
+/* ===============================
+   MOBILE NAVIGATION
+================================ */
 
 @media(max-width:850px) {
 
@@ -1121,7 +1489,8 @@ a {
         border-bottom:
             1px solid var(--line);
 
-        padding: 18px 22px;
+        padding:
+            18px 22px;
 
         flex-direction: column;
 
@@ -1144,6 +1513,7 @@ a {
 
         padding-top: 75px;
     }
+
 
     .hero-right {
         min-height: 430px;
@@ -1185,7 +1555,9 @@ a {
 }
 
 
-/* ================= SMALL MOBILE ================= */
+/* ===============================
+   SMALL MOBILE
+================================ */
 
 @media(max-width:600px) {
 
@@ -1197,43 +1569,64 @@ a {
             );
     }
 
+
     .hero h1 {
         letter-spacing: -3px;
     }
+
+
+    /* HERO BUTTONS */
 
     .hero-buttons {
         flex-direction: column;
 
         align-items: stretch;
+
+        width: 100%;
     }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
 
     .quick-facts {
         gap: 20px;
     }
 
+
     .floating-card.one {
         left: -6px;
     }
+
 
     .floating-card.two {
         right: -3px;
     }
 
+
     .portrait-card {
         height: 400px;
     }
 
+
     .portrait-placeholder {
         height: 310px;
+
         width: 100%;
     }
 
+
     .portrait-placeholder img {
         width: 100%;
+
         height: 100%;
+
         object-fit: cover;
+
         object-position: center;
     }
+
 
     .skills-grid,
     .projects,
@@ -1241,13 +1634,16 @@ a {
         grid-template-columns: 1fr;
     }
 
+
     .project.featured {
         grid-column: span 1;
     }
 
+
     .project {
         min-height: 0;
     }
+
 
     .experience-grid {
         grid-template-columns:
@@ -1255,13 +1651,16 @@ a {
             1fr;
     }
 
+
     .contact-card {
         padding: 28px;
     }
 
+
     .contact-card h2 {
         font-size: 37px;
     }
+
 
     .footer {
         flex-direction: column;
